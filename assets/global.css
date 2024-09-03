@@ -22,3 +22,25 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+/* ---------- Tabelle ----------*/
+
+table{
+    margin-top: 2ex;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    thead{
+        background-color: color-mix(in oklab, var(--clr-vue) 90%, black);
+    }
+
+    th{
+        font-weight: 600;
+    }
+
+    :is(th,td){
+        border: 1px solid;
+        padding: .3rem 1ch;
+    }
+}

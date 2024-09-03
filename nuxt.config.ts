@@ -11,11 +11,14 @@ export default defineNuxtConfig({
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseAnonKey: process.env.SUPABASE_SECRET_KEY,
     },
-    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY
+    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KE,
+    app: {
+      cdnURL: 'http://localhost:3000'
+    },
 },
 supabase: {
   // redirect: false,
   redirectOptions:{login:'/login',callback:'/'}
-},
+}
   
 })

@@ -24,7 +24,7 @@ console.log("user ",user);
     <nav>
         <ul>
             <li><NuxtLink to="/">HOME</NuxtLink></li>
-            <li><NuxtLink to="/page2">PAGE 2</NuxtLink></li>
+            <li><NuxtLink to="/colleghi">COLLEGHI</NuxtLink></li>
         </ul>
         <div class="all-centered">
             <span class="user-name">BENVENUTO {{ user.user_metadata.full_name.toUpperCase() }}</span>

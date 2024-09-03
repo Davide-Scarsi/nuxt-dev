@@ -1,8 +1,8 @@
 <template>
   <div class="login-container">
     <Icon class="icon" name="flat-color-icons:google" style="color: black" />
-    <h2>LOGIN WITH GOOGLE</h2>
-    <button @click="signInWithOAuth">Sign in with Google</button>
+    
+    <button @click="signInWithOAuth">LOGIN WITH GOOGLE</button>
   </div>
 </template>
 
@@ -13,13 +13,14 @@ definePageMeta({
 })
 
 const client = useSupabaseClient()
+const runtimeConfig = useRuntimeConfig()
 
 const signInWithOAuth = async () => {
   try {
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'http://localhost:3000/'
+        redirectTo: runtimeConfig.app.cdnURL
       }
     });
 
@@ -30,10 +31,8 @@ const signInWithOAuth = async () => {
     if(error)
     console.error('Error during login', error.message);
     
-    
   }catch (e){
     console.log(e.message);
-    
   }
 }
 </script>
@@ -52,7 +51,8 @@ const signInWithOAuth = async () => {
 
 button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 .icon{
