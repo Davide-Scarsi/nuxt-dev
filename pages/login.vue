@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+    <Icon class="icon" name="flat-color-icons:google" style="color: black" />
     <h2>LOGIN WITH GOOGLE</h2>
     <button @click="signInWithOAuth">Sign in with Google</button>
   </div>
@@ -53,4 +54,10 @@ button {
   padding: 10px 20px;
   font-size: 16px;
 }
+
+.icon{
+  height: 100px;
+  width: 100px;
+}
+
 </style>

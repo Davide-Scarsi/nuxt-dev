@@ -5,9 +5,7 @@ export default defineNuxtConfig({
   css: [
     '@/assets/global.css'
   ],
-  modules: [
-    '@nuxtjs/supabase',
-  ],
+  modules: ['@nuxtjs/supabase', '@nuxt/icon'],
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
