@@ -13,13 +13,13 @@ export default defineNuxtConfig({
     // },
     // supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KE,
     app: {
-      // cdnURL: 'http://localhost:3000'
-      cdnURL: 'https://nuxtdev.netlify.app/'
+      cdnURL: process.env.SITE_URL
+      // cdnURL: 'https://nuxtdev.netlify.app/'
     },
 },
 supabase: {
   // redirect: false,
-  redirectOptions:{login:'/login',callback:'/'}
-}
+  redirectOptions:{login:'/login',callback:'/'},
+},
   
 })
