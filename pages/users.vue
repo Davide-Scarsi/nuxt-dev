@@ -1,7 +1,7 @@
 <script setup>
 const client = useSupabaseClient()
 
-const colleghi = ref([])
+const utenti = ref([])
 const colonne = ref([])
 
 onMounted(() => {
@@ -10,7 +10,7 @@ onMounted(() => {
 
 async function getUtenti() {
   const { data } = await client.from('Utenti').select('*')
-  colleghi.value = data
+  utenti.value = data
   console.log("Utenti ",data);
   
   colonne.value = Object.keys(data[0])
@@ -31,15 +31,15 @@ function formatDate(isoString) {
     <thead>
       <tr>
         <th> Creato </th>
-        <th> Nome </th>
         <th> Id </th>
+        <th> Nome </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="collega in colleghi" :key="collega.id">
-        <td>{{ formatDate(collega.created_at) }}</td>
-        <td>{{ collega.nome }}</td>
-        <td>{{ collega.idGoogle }}</td>
+      <tr v-for="utente in utenti" :key="utente.id">
+        <td>{{ formatDate(utente.created_at) }}</td>
+        <td>{{ utente.id }}</td>
+        <td>{{ utente.nome }}</td>
       </tr>
     </tbody>
   </table>

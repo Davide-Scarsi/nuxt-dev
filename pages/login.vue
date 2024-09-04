@@ -1,5 +1,4 @@
 <script setup>
-const colleghi = ref([])
 
 const client = useSupabaseClient()
 const runtimeConfig = useRuntimeConfig()
@@ -19,9 +18,6 @@ onMounted(async () => {
 const signInWithOAuth = async () => {
   try {
 
-    
-
-
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -32,8 +28,6 @@ const signInWithOAuth = async () => {
     const { data: { user } } = await client.auth.getUser()
 
     console.log("user ",user);
-
-    
 
     if(error)
     console.error('Error during login', error.message);
