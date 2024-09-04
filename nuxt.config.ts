@@ -7,13 +7,14 @@ export default defineNuxtConfig({
   ],
   modules: ['@nuxtjs/supabase', '@nuxt/icon'],
   runtimeConfig: {
-    public: {
-      supabaseUrl: process.env.SUPABASE_URL,
-      supabaseAnonKey: process.env.SUPABASE_SECRET_KEY,
-    },
-    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KE,
+    // public: {
+    //   supabaseUrl: process.env.SUPABASE_URL,
+    //   supabaseAnonKey: process.env.SUPABASE_SECRET_KEY,
+    // },
+    // supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KE,
     app: {
-      cdnURL: 'http://localhost:3000'
+      // cdnURL: 'http://localhost:3000'
+      cdnURL: 'https://nuxtdev.netlify.app/'
     },
 },
 supabase: {
