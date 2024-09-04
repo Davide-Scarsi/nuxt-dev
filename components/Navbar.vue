@@ -7,16 +7,10 @@ const signOutWithOAuth = async () => {
     const { error } = await client.auth.signOut()
     router.push('/login')
 }
+
 const { data: { user } } = await client.auth.getUser()
-
-if(!user){
-    router.push('/login')
-}
+if(!user){router.push('/login')}
 console.log("user ",user);
-
-
-
-
 
 </script>
 
@@ -24,11 +18,11 @@ console.log("user ",user);
     <nav>
         <ul>
             <li><NuxtLink to="/">HOME</NuxtLink></li>
-            <li><NuxtLink to="/colleghi">COLLEGHI</NuxtLink></li>
+            <li><NuxtLink to="/users">UTENTI</NuxtLink></li>
         </ul>
         <div class="all-centered">
             <span class="user-name">BENVENUTO {{ user.user_metadata.full_name.toUpperCase() }}</span>
-            <img class="user-img" :src="user.user_metadata.picture" alt="/">
+            <img class="user-img" :src="user.user_metadata.picture" alt="">
             <button class="logout" @click="signOutWithOAuth">LOGOUT</button>
         </div>
     </nav>

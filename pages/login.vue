@@ -1,22 +1,27 @@
-<template>
-  <div class="login-container">
-    <Icon class="icon" name="flat-color-icons:google" style="color: black" />
-    
-    <button @click="signInWithOAuth">LOGIN WITH GOOGLE</button>
-  </div>
-</template>
-
 <script setup>
+const colleghi = ref([])
+
+const client = useSupabaseClient()
+const runtimeConfig = useRuntimeConfig()
+const router = useRouter()
 
 definePageMeta({
   layout: 'empty'
 })
 
-const client = useSupabaseClient()
-const runtimeConfig = useRuntimeConfig()
+onMounted(async () => {    
+      const { data: { user } } = await client.auth.getUser()
+      if(!user){router.push('/login')}
+      console.log("user ",user);
+});
+
 
 const signInWithOAuth = async () => {
   try {
+
+    
+
+
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -28,6 +33,8 @@ const signInWithOAuth = async () => {
 
     console.log("user ",user);
 
+    
+
     if(error)
     console.error('Error during login', error.message);
     
@@ -35,7 +42,17 @@ const signInWithOAuth = async () => {
     console.log(e.message);
   }
 }
+
+
 </script>
+
+<template>
+  <div class="login-container">
+    <Icon class="icon" name="flat-color-icons:google" style="color: black" />
+    
+    <button @click="signInWithOAuth">LOGIN WITH GOOGLE</button>
+  </div>
+</template>
 
 <style scoped>
 .login-container {

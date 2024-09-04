@@ -1,10 +1,9 @@
 <template>
-    <Navbar />
+    <Navbar/>
     <NuxtPage />
 </template>
 
 <script setup>
-// Eventuali script specifici per il layout di default
 </script>
 
 <style scoped>

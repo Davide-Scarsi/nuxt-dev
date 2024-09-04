@@ -1,4 +1,4 @@
 <!-- layouts/empty.vue -->
 <template>
-  <nuxt-page />
+  <NuxtPage />
 </template>
