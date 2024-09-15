@@ -178,6 +178,7 @@ nav {
 
                     .btn-logout {
                         margin-block: 1ex 2ex;
+						margin-inline: 2ch;
                     }
                 }
 
