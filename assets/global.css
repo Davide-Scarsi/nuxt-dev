@@ -1,6 +1,7 @@
 :root {
     --clr-vue: #42b883;
     --clr-dark-vue: color-mix(in oklab, var(--clr-vue) 90%, black);
+    --clr-dark-2-vue: color-mix(in oklab, var(--clr-vue) 60%, black);
 
 }
 
@@ -32,6 +33,7 @@ body {
 
 table{
     margin-top: 2ex;
+    margin-inline: auto ;
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
@@ -44,8 +46,28 @@ table{
         font-weight: 600;
     }
 
+    td{
+        background-color: white;
+    }
+
     :is(th,td){
         border: 1px solid;
         padding: .3rem 1ch;
     }
 }
+
+/* ---------- Responsive ----------*/
+@media screen and (max-width: 900px) {
+    body {
+        width: 100svw;
+    }
+
+    table{
+        width: 90svw;
+    
+    }
+    .no-tablet{
+        display: none;
+    }
+  }
+

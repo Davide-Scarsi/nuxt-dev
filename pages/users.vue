@@ -31,15 +31,15 @@ function formatDate(isoString) {
     <thead>
       <tr>
         <th> Creato </th>
-        <th> Id </th>
-        <th class="colonna-nome"> Nome </th>
+        <th  class="no-tablet"> Id </th>
+        <th> Nome </th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="utente in utenti" :key="utente.id">
         <td>{{ formatDate(utente.created_at) }}</td>
-        <td>{{ utente.id }}</td>
-        <td class="colonna-nome">{{ utente.nome }}</td>
+        <td  class="no-tablet">{{ utente.id }}</td>
+        <td>{{ utente.nome }}</td>
       </tr>
     </tbody>
   </table>
@@ -48,6 +48,7 @@ function formatDate(isoString) {
 <style scoped>
   th{
     color: white;
+    border: 1px solid var(--clr-vue);
 
     &:first-child{
       width: 20%;
@@ -58,13 +59,12 @@ function formatDate(isoString) {
   }
 
   /* ---------- RESPONSIVE ---------- */
-  @container body (inline-size < 900px) { 
+  @media screen and (max-width: 900px) { 
     td{
       text-align: center;
     }
-
-    :is(td,th):not(.colonna-nome) {
-      display: none;
+    th:first-child{
+      width: initial !important;
     }
   }
 </style>
