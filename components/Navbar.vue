@@ -17,10 +17,13 @@ console.log("user ", user);
 <template>
     <nav>
         <details open>
+            <summary>
+                <Icon class="icon-hamburger" name="solar:hamburger-menu-broken" style="color: black" />
+            </summary>
             <div class="nav-items">
                 <ul class="navigation-box">
                     <li>
-                        <NuxtLink to="/">HOME</NuxtLink>
+						<NuxtLink to="/">HOME</NuxtLink>
                     </li>
                     <li>
                         <NuxtLink to="/users">UTENTI</NuxtLink>
@@ -32,9 +35,6 @@ console.log("user ", user);
                     <button class="btn-logout" @click="signOutWithOAuth">LOGOUT</button>
                 </div>
             </div>
-            <summary>
-                <Icon class="icon-hamburger" name="solar:hamburger-menu-broken" style="color: black" />
-            </summary>
         </details>
 
     </nav>
@@ -42,6 +42,10 @@ console.log("user ", user);
 </template>
 
 <style scoped>
+*{
+    user-select: none;
+}
+
 nav {
     background-color: var(--clr-vue);
 
@@ -60,28 +64,27 @@ nav {
 
                 li {
                     list-style-type: none;
-                    color: white;
-                    padding: 1ch;
-                    border-radius: 3px;
 
-                    &:hover {
-                        background-color: var(--clr-dark-vue);
-                    }
+                    a {
+						color: white !important;
+                        all: initial;
+						width: 100%;
+						text-align: center;
+						padding: 1.5ex 2ch;
+						border-radius: 3px;
+						color: white;
 
-                    &:active {
-                        background-color: var(--clr-dark-2-vue);
-                    }
-                }
+						&:hover {
+							cursor: pointer;
+                        	background-color: var(--clr-dark-vue);
+                    	}
 
-                li a {
-                    color: white !important;
-                    all: initial;
-
-                    &:hover {
-                        color: blue;
-                        cursor: pointer;
+						&:active {
+							background-color: var(--clr-dark-2-vue);
+						}
                     }
                 }
+
             }
 
             .user-box {
@@ -108,7 +111,7 @@ nav {
                     border: none;
                     font-size: .7rem;
                     padding: .3rem 1.1ch;
-                    margin-inline: 2ch;
+                    margin-inline: 2ch 4ch;
                     border-radius: 3px;
                     background-color: color-mix(in lab, var(--clr-vue), #FFF 60%);
 
@@ -147,12 +150,11 @@ nav {
 nav {
     @media screen and (max-width: 900px) {
 
-
         details {
 
             .nav-items {
                 display: flex;
-                flex-direction: column-reverse;
+                flex-direction: column;
                 margin-inline: auto;
                 width: clamp(200px, 60%, 900px);
 
@@ -165,7 +167,7 @@ nav {
 
                     img.user-img {
                         width: clamp(10%, 100px, 100%);
-                        order: -1
+                        order: -1;
                     }
 
                     .user-name {
@@ -183,6 +185,7 @@ nav {
                     width: 100%;
                     display: flex;
                     flex-direction: column;
+                    order: 1;
 
                     li {
                         display: flex;
